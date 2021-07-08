@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Tile from './components/Tile';
 import DisplayTiles from './components/DisplayTiles';
+import { Container } from 'react-bootstrap';
 
 
 function App() {
@@ -26,9 +27,8 @@ function App() {
   function randomDescription(){
     var result = "";
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const charactersLength = characters.length;
-    for (let i=0; i < charactersLength; i++){
-      result += characters.charAt(Math.floor(Math.random()*charactersLength));
+    for (let i=0; i < 15; i++){
+      result += characters.charAt(Math.floor(Math.random()*15));
     }
     return result;
   }
@@ -49,9 +49,11 @@ function App() {
   return (
     <div>
       {loading && <p>Loading</p>}
-      {!loading &&
-      <DisplayTiles mapTiles={() => mapUsers(users)} />
-      }
+      <Container fluid>
+        {!loading &&
+        <DisplayTiles mapTiles={() => mapUsers(users)} />
+        }
+      </Container>
     </div>
   );
 }
