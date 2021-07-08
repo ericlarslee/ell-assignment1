@@ -27,8 +27,9 @@ function App() {
   function randomDescription(){
     var result = "";
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let charactersLength = characters.length
     for (let i=0; i < 15; i++){
-      result += characters.charAt(Math.floor(Math.random()*15));
+      result += characters.charAt(Math.floor(Math.random()*charactersLength));
     }
     return result;
   }
@@ -48,7 +49,9 @@ function App() {
 
   return (
     <div>
-      {loading && <p>Loading</p>}
+      <div>
+        {loading && <p>Loading</p>}
+      </div>
       <Container fluid>
         {!loading &&
         <DisplayTiles mapTiles={() => mapUsers(users)} />
