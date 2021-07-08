@@ -1,7 +1,6 @@
 import './App.css';
 import { getProfileData } from './components/services';
 import { useEffect, useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Tile from './components/Tile';
 import DisplayTiles from './components/DisplayTiles';
 import { Container } from 'react-bootstrap';
@@ -13,7 +12,6 @@ function App() {
     
   async function loadProfileData(){
     let response = await getProfileData();
-    console.log(response.results);
     setLoading(false);
     setUsers(response.results);
   }
